@@ -4,7 +4,9 @@ import WPMTracker from "./wpmTracker.vue";
 import { ref, computed, onMounted } from "vue";
 
 const props = withDefaults(
-  defineProps<FormType & { toggleForm: (state: boolean) => void }>(),
+  defineProps<
+    FormType & { formState: boolean; toggleForm: (state: boolean) => void }
+  >(),
   {
     numberOfWordsOnDisplay: 1, // default = 1
   },
@@ -96,7 +98,6 @@ const stopFunction = () => {
   word.value = "";
   countdown.value = 0;
   isPaused.value = false;
-  props.toggleForm(true);
 };
 
 computed(() => {
@@ -126,6 +127,12 @@ onMounted(() => {
 
     <div class="space-y-4 absolute bottom-3 left-3">
       <div class="flex gap-2 opacity-0 hover:opacity-100">
+        <button
+          @click="props.toggleForm(!formState)"
+          class="px-3 py-1 bg-blue-500 text-white rounded"
+        >
+          show form
+        </button>
         <button
           @click="startFunction"
           class="px-3 py-1 bg-green-500 text-white rounded"
