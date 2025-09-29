@@ -1,6 +1,7 @@
-# Vue 3 + TypeScript + Vite
+This app is a speed-reading tool built with Vue and TailwindCSS. It takes any text input and projects the words one after another on the screen. Users can:
+	•	Set display preferences – background color, text color, font size, content, and duration.
+	•	Control speed – adjust how fast words appear, with automatic calculation of words per minute (WPM).
+	•	Choose word grouping – display 1 or more words at once using numberOfWordsOnDisplay.
+	•	Playback controls – start with a 3-second countdown, then play, pause/resume, or stop the session at any time.
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
-# speed-reading
+The goal is to help readers practice faster reading and improve focus by controlling the pace and presentation of words.
