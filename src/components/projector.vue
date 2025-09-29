@@ -33,7 +33,7 @@ const wordsPerMinute = computed(() => {
 const startFunction = () => {
   stopFunction();
   props.toggleForm(false);
-  const content = props.content.split(" ").filter(Boolean);
+  const content = props.content.toLowerCase().split(" ").filter(Boolean);
   if (content.length === 0) return;
 
   countdown.value = 4;
@@ -121,11 +121,11 @@ onMounted(() => {
     :style="{ backgroundColor: bgColor }"
   >
     <!-- Show calculated WPM -->
-    <div class="absolute bottom-3 right-3 overflow-hidden">
+    <div class="absolute bottom-10 right-10 overflow-hidden">
       <WPMTracker :wordsPerMinute />
     </div>
 
-    <div class="space-y-4 absolute bottom-3 left-3">
+    <div class="space-y-4 absolute top-3 left-3">
       <div class="flex gap-2 opacity-0 hover:opacity-100">
         <button
           @click="props.toggleForm(!formState)"
