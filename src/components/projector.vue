@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FormType } from "../types";
 import WPMTracker from "./wpmTracker.vue";
+import { cleanWords } from "../utils/cleanWords";
 import { ref, computed, onMounted } from "vue";
 
 const props = withDefaults(
@@ -33,7 +34,10 @@ const wordsPerMinute = computed(() => {
 const startFunction = () => {
   stopFunction();
   props.toggleForm(false);
-  const content = props.content.toLowerCase().split(" ").filter(Boolean);
+  const content = cleanWords(props.content)
+    .toLowerCase()
+    .split(" ")
+    .filter(Boolean);
   if (content.length === 0) return;
 
   countdown.value = 4;
